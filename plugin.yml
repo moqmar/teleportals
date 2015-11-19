@@ -1,0 +1,8 @@
+name: Teleportals
+main: de.momar.bukkit.teleportals.Teleportals
+version: 0.2
+depend: [AdamantUI]
+permissions:
+    teleportals:
+        description: Players with this permission can use portal items.
+        default: true

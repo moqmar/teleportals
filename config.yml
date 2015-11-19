@@ -1,0 +1,159 @@
+# Available Slots:
+#  0  1  2  3  4  5  6  7  8
+#  9  10 11 12 13 14 15 16 17
+#  18 19 20 21 22 23 24 25 26
+#  27 28 29 30 31 32 33 34 35
+#  36 37 38 39 40 41 42 43 44
+#  45 46 47 48 49 50 51 52 53
+# 
+# Available variables:
+#  {durability}: How often you can use the compass.
+#  {target}: The teleport target. In playerItem: the name of the player to teleport to
+#                                 Everywhere else: the target coordinates (e.g. "world, X20 Y80 Z90")
+#  {player}: The player who wants to get teleported
+#  {meta}: In error messages: more information.
+# 
+# Available targets:
+#  bed: A players bed.
+#  death: A player's last death point.
+#  up: The highest block above the player.
+#  worldspawn: The world's spawn point.
+# 
+# Available costs:
+#  1xp: Takes you one experience level.
+#  1hp: Takes you half a heart.
+#  1sp: Takes you half a saturation point.
+#  -1xp: Sets your experience level to one.
+#  -1hp: Sets your health to half a heart.
+#  -1sp: Sets your saturation to half a heart.
+#  1: Takes you one money unit via Vault. NYI!
+
+config:
+  # Can be 'scoreboard' or 'chat'
+  errorDisplay: scoreboard
+  # For errorDisplay:scoreboard
+  displayTime: 10
+  
+  logTeleports: true
+  # Cooldown between two teleports in seconds
+  cooldown: 20
+  
+  # The portal item itself.
+  portalItem:
+    item: COMPASS
+    name: '&bPortal'
+    lore: '&6I&2t&3''&4s &5f&9u&6l&al &bo&cf &dm&ea&4g&2i&6c&3!|{durability} usages left.'
+    ench: true
+    durability: 20
+    drops:
+      # Chance that mobs drop a portal item in percent (every 10th Wither will drop a portal)
+      WITHER,ENDER_DRAGON: 10
+      BLAZE,GHAST,MAGMA_CUBE,PIG_ZOMBIE,PIG_ZOMBIE,ENDERMAN: 0.8
+      CAVE_SPIDER,CREEPER,SILVERFISH,SKELETON,SPIDER,ZOMBIE: 0.2
+  
+  playerSlots: 36-53
+  playerCost: 3xp
+  playerItem:
+    item: SKULL_ITEM:3
+    name: '&3&o{target}'
+    lore: 'Teleports you to {target}.|&4Cost: 3 levels'
+    ench: false
+  
+  # All the custom warps
+  mywarpSlots: 18-24
+  mywarpCost: 4xp
+  mywarpItem:
+    name: '&3&oCustom Warp'
+    lore: 'Teleports you to {target}.|&4Cost: 4 levels||&oHold Shift + Click to edit'
+    ench: false
+
+  # Creating new custom warps
+  mywarpNewSlot: 26
+  mywarpNewCost: 5xp
+  mywarpNewItem:
+    item: NAME_TAG
+    name: '&3&oCreate custom warp'
+    lore: 'Create a new personal warp point.|&4Cost: 5 levels'
+    ench: true
+
+# Public warps.
+warps:
+  # Slot to use:
+  0:
+    # Item:
+    item: BEACON
+    name: '&3&oSpawn'
+    lore: 'Teleports you to world spawn.|&4Cost: 2 levels'
+    ench: false
+    # Cost & target:
+    cost: 2xp
+    target: worldspawn
+    world: world
+  1:
+    item: BED
+    name: '&3&oHome'
+    lore: 'Teleports you to your bed spawn.|&4Cost: 2 levels'
+    ench: false
+    cost: 2xp
+    target: bed
+  7:
+    item: DIAMOND_HOE
+    name: '&3&oDeath point'
+    lore: 'Teleports you to your last death point at {target}.|&4Cost: Half your life'
+    cost: -10hp
+    target: death
+  8:
+    item: FIREWORK
+    name: '&3&oUp'
+    lore: 'Beams you up.|&4Cost: 4 levels'
+    cost: 4xp
+    target: up
+  3:
+    item: STONE
+    name: '&3&oExample'
+    lore: '&4Example teleport|Teleports you to {target}.|&4Cost: 2 levels'
+    ench: false
+    cost: 2xp
+    target: 0 300 0
+  4:
+    item: SKULL_ITEM:2
+    name: '&3&oExample'
+    lore: '&4Example teleport|Teleports you to {target}.|&4Cost: 2 levels'
+    ench: false
+    cost: 2xp
+    target: 0 300 0
+    world: world_nether
+  5:
+    item: WOOL
+    name: '&3&oTest!'
+    lore: 'This item does nothing. Go to the config file and edit it!'
+
+# The selectable icons for custom warp points.
+icons:
+- SAPLING
+- LOG
+- CHEST
+- MOSSY_COBBLESTONE
+- POWERED_RAIL
+- TNT
+- PISTON_STICKY_BASE
+- PUMPKIN
+- MELON
+- DIAMOND_SWORD
+- DIAMOND_PICKAXE
+- DIAMOND_SPADE
+- DIAMOND_AXE
+- DIAMOND_HOE
+- BOOK
+- BOOKSHELF
+- ENCHANTMENT_TABLE
+- CAKE
+- WOOL
+- WOOL:14
+- WOOL:5
+- WOOL:11
+- WOOL:4
+- WOOL:15
+- IRON_BLOCK
+- GOLD_BLOCK
+- DIAMOND_BLOCK

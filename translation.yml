@@ -1,0 +1,13 @@
+portalTitle: Portal
+console: This command can only be executed by a player!
+iconMenu: Select icon
+changeIcon: '&3Edit warp icon'
+selectIcon: '&3Create warp'
+changeTarget: '&4Update target'
+deleteWarp: '&4Delete warp'
+error_unsafe_title: '&4&l&k====&r&4&l Error &k====&r'
+error_unsafe_text: '&oCould not find a safe location.'
+error_cost_title: '&4&l&k====&r&4&l Error &k====&r'
+error_cost_text: '&oYou can''t pay the price. &4You will need at least {meta} to teleport!'
+error_teleporting_title: '&4&l&k====&r&4&l Error &k====&r'
+error_teleporting_text: '&oPlease wait {meta} seconds until you can teleport again!'
